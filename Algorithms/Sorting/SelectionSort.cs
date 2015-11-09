@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Algorithms.Sorting
 {
+    /// <summary>
+    /// The selection sort algorithm
+    /// </summary>
     public class SelectionSort : ISortingAlgorithm
     {
         public IEnumerable<TSource> Sort<TSource, TKey>(

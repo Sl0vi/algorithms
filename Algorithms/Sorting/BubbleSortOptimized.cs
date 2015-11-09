@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Algorithms.Sorting
 {
+    /// <summary>
+    /// An optimized version of the bubble sort algorithm
+    /// </summary>
     public class BubbleSortOptimized : ISortingAlgorithm
     {
         public IEnumerable<TSource> Sort<TSource, TKey>(
