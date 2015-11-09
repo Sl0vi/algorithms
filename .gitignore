@@ -1,0 +1,11 @@
+# User specific files
+*.userprefs
+
+# build ouput
+[Bb]in/
+[Oo]bj/
+
+# Nuget
+packages/*
+!packages/repositories.config
+
