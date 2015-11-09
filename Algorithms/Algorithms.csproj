@@ -44,4 +44,7 @@
   <ItemGroup>
     <Folder Include="Sorting\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Sorting\README.md" />
+  </ItemGroup>
 </Project>
