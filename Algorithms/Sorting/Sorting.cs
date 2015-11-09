@@ -12,6 +12,8 @@ namespace Algorithms.Sorting
             sortingAlgorithms = new Dictionary<SortingAlgorithm, Type>();
             sortingAlgorithms.Add(SortingAlgorithm.SelectionSort, typeof(SelectionSort));
             sortingAlgorithms.Add(SortingAlgorithm.InsertionSort, typeof(InsertionSort));
+            sortingAlgorithms.Add(SortingAlgorithm.BubbleSort, typeof(BubbleSort));
+            sortingAlgorithms.Add(SortingAlgorithm.BubbleSortOptimized, typeof(BubbleSortOptimized));
         }
 
         public static IEnumerable<TSource> Sort<TSource, TKey>(

@@ -1,11 +1,10 @@
-﻿using System;
-
-namespace Algorithms.Sorting
+﻿namespace Algorithms.Sorting
 {
     public enum SortingAlgorithm
     {
         SelectionSort,
         InsertionSort,
         BubbleSort,
+        BubbleSortOptimized
     }
 }

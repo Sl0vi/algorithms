@@ -37,6 +37,8 @@
     <Compile Include="Sorting\SelectionSortTests.cs" />
     <Compile Include="Sorting\SortObject.cs" />
     <Compile Include="Sorting\InsertionSortTests.cs" />
+    <Compile Include="Sorting\BubbleSortTests.cs" />
+    <Compile Include="Sorting\BubbleSortOptimizedTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

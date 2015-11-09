@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Algorithms.Sorting
 {
-    public class BubbleSort : ISortingAlgorithm
+    public class BubbleSortOptimized : ISortingAlgorithm
     {
         public IEnumerable<TSource> Sort<TSource, TKey>(
             IEnumerable<TSource> collection, 
@@ -13,10 +13,11 @@ namespace Algorithms.Sorting
         {
             var list = collection.ToList();
             var swapped = false;
+            var swaps = 0;
             do
             {
                 swapped = false;
-                for (int i = 0; i < list.Count - 1; i++)
+                for (int i = 0; i < list.Count - swaps - 1; i++)
                 {
                     if ((key(list[i]).CompareTo(key(list[i + 1])) > 0 && sortOrder == SortOrder.Ascending)
                         || (key(list[i]).CompareTo(key(list[i + 1])) < 0 && sortOrder == SortOrder.Descending))
@@ -25,6 +26,7 @@ namespace Algorithms.Sorting
                         swapped = true;
                     }
                 }
+                swaps++;
             } while (swapped == true);
             return list;
         }

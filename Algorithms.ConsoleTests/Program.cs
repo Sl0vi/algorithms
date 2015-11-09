@@ -22,8 +22,10 @@ namespace Algorithms.ConsoleTests
 
             warmup.Sort(x => x, SortingAlgorithm.SelectionSort);
             warmup.Sort(x => x, SortingAlgorithm.InsertionSort);
+            warmup.Sort(x => x, SortingAlgorithm.BubbleSort);
+            warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
 
-            var bigCollection = new int[50000];
+            var bigCollection = new int[20000];
             for (var i = 0; i < bigCollection.Length; i++)
             {
                 bigCollection[i] = random.Next(int.MinValue, int.MaxValue);
@@ -41,6 +43,22 @@ namespace Algorithms.ConsoleTests
             Console.WriteLine("Insertion sort:");
             watch.Start();
             bigCollection.Sort(x => x, SortingAlgorithm.InsertionSort);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+
+            watch.Reset();
+
+            Console.WriteLine("Bubble sort:");
+            watch.Start();
+            bigCollection.Sort(x => x, SortingAlgorithm.BubbleSort);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+
+            watch.Reset();
+
+            Console.WriteLine("Bubble sort (optimized):");
+            watch.Start();
+            bigCollection.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
         }
