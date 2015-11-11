@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Algorithms.Sorting;
 
 namespace Algorithms.ConsoleTests
@@ -24,8 +26,9 @@ namespace Algorithms.ConsoleTests
             warmup.Sort(x => x, SortingAlgorithm.InsertionSort);
             warmup.Sort(x => x, SortingAlgorithm.BubbleSort);
             warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
+            warmup.Sort(x => x, SortingAlgorithm.QuickSort);
 
-            var bigCollection = new int[20000];
+            var bigCollection = new int[100000];
             for (var i = 0; i < bigCollection.Length; i++)
             {
                 bigCollection[i] = random.Next(int.MinValue, int.MaxValue);
@@ -34,33 +37,66 @@ namespace Algorithms.ConsoleTests
             var watch = new Stopwatch();
             Console.WriteLine("Selection sort:");
             watch.Start();
-            bigCollection.Sort(x => x, SortingAlgorithm.SelectionSort);
+            var sorted = bigCollection.Sort(x => x, SortingAlgorithm.SelectionSort);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
 
             watch.Reset();
+            sorted = null;
+            GC.Collect();
 
             Console.WriteLine("Insertion sort:");
             watch.Start();
-            bigCollection.Sort(x => x, SortingAlgorithm.InsertionSort);
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.InsertionSort);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
 
             watch.Reset();
+            sorted = null;
+            GC.Collect();
 
             Console.WriteLine("Bubble sort:");
             watch.Start();
-            bigCollection.Sort(x => x, SortingAlgorithm.BubbleSort);
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.BubbleSort);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
 
             watch.Reset();
+            sorted = null;
+            GC.Collect();
 
             Console.WriteLine("Bubble sort (optimized):");
             watch.Start();
-            bigCollection.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+
+            watch.Reset();
+            sorted = null;
+            GC.Collect();
+
+            Console.WriteLine("Quick sort:");
+            watch.Start();
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSort);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+        }
+
+        static int SortErrorCount(IEnumerable<int> collection)
+        {
+            var list = collection.ToList();
+            var counter = 0;
+            for (var i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i] > list[i + 1])
+                    counter++;
+            }
+            return counter;
         }
     }
 }

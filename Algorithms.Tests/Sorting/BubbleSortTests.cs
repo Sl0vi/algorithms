@@ -17,10 +17,7 @@ namespace Algorithms.Tests.Sorting
                 .Sort(x => x, algorithm).ToArray();
             var sorted = new[] { 1, 5, 6, 12, 23, 24, 44, 233 };
             Assert.That(list.Length, Is.EqualTo(sorted.Length));
-            for (var i = 0; i < list.Length; i++)
-            {
-                Assert.That(list[i], Is.EqualTo(sorted[i]));
-            }
+            Assert.That(list, Is.EqualTo(sorted));
         }
 
         [Test]
@@ -30,10 +27,7 @@ namespace Algorithms.Tests.Sorting
                 .Sort(x => x, algorithm, SortOrder.Descending).ToArray();
             var sorted = new[] { 233, 44, 24, 23, 12, 6, 5, 1};
             Assert.That(list.Length, Is.EqualTo(sorted.Length));
-            for (var i = 0; i < list.Length; i++)
-            {
-                Assert.That(list[i], Is.EqualTo(sorted[i]));
-            }
+            Assert.That(list, Is.EqualTo(sorted));
         }
 
         [Test]
@@ -43,10 +37,7 @@ namespace Algorithms.Tests.Sorting
                 .Sort(x => x, algorithm).ToArray();
             var sorted = new[] { "Bill", "George", "Hans", "Ivan", "Olli" };
             Assert.That(list.Length, Is.EqualTo(sorted.Length));
-            for (var i = 0; i < list.Length; i++)
-            {
-                Assert.That(list[i], Is.EqualTo(sorted[i]));
-            }
+            Assert.That(list, Is.EqualTo(sorted));
         }
 
         [Test]
@@ -56,10 +47,7 @@ namespace Algorithms.Tests.Sorting
                 .Sort(x => x, algorithm, SortOrder.Descending).ToArray();
             var sorted = new[] { "Olli", "Ivan", "Hans", "George", "Bill" };
             Assert.That(list.Length, Is.EqualTo(sorted.Length));
-            for (var i = 0; i < list.Length; i++)
-            {
-                Assert.That(list[i], Is.EqualTo(sorted[i]));
-            }
+            Assert.That(list, Is.EqualTo(sorted));
         }
 
         [Test]

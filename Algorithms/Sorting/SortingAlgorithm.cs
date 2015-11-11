@@ -5,6 +5,7 @@
         SelectionSort,
         InsertionSort,
         BubbleSort,
-        BubbleSortOptimized
+        BubbleSortOptimized,
+        QuickSort
     }
 }

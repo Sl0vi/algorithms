@@ -6,9 +6,9 @@ using NUnit.Framework;
 namespace Algorithms.Tests.Sorting
 {
     [TestFixture]
-    public class BubbleSortOmptimizedTests
+    public class QuickSortTests
     {
-        private SortingAlgorithm algorithm = SortingAlgorithm.BubbleSortOptimized;
+        private SortingAlgorithm algorithm = SortingAlgorithm.QuickSort;
 
         [Test]
         public void SortNumbers()
@@ -53,18 +53,18 @@ namespace Algorithms.Tests.Sorting
         [Test]
         public void SortObjectNumbers()
         {
-            var list = new[]
+            var list = new[] 
             { 
-                new SortObject { Number = 5, Text = "Hans" },
+                new SortObject { Number = 5, Text =  "Hans" },
                 new SortObject { Number = 1, Text = "Olli" },
                 new SortObject { Number = 24, Text = "Bill" },
                 new SortObject { Number = 12, Text = "George" },
                 new SortObject { Number = 6, Text = "Ivan" }
             }.Sort(x => x.Number, algorithm).ToArray();
-            var sorted = new[]
+            var sorted = new[] 
             { 
                 new SortObject { Number = 1, Text = "Olli" },
-                new SortObject { Number = 5, Text = "Hans" },
+                new SortObject { Number = 5, Text =  "Hans" },
                 new SortObject { Number = 6, Text = "Ivan" },
                 new SortObject { Number = 12, Text = "George" },
                 new SortObject { Number = 24, Text = "Bill" }
