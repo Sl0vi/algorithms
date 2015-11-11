@@ -24,6 +24,8 @@ Example usage:
 The algorithms can even sort more complex objects as long as you specify a
 sorting key that implements the IComparable interface.
 
+    using Algorithms.Sorting;
+
     class Customer
     {
         public int Id { get; set; }
@@ -35,8 +37,9 @@ sorting key that implements the IComparable interface.
         new Customer { Id = 1, Name = "George" },
         new Customer { Id = 3, Name = "Lucas" },
         new Customer { Id = 2, Name = "John" }
-    }
-    var sorted = x.sort(
+    };
+
+    var sorted = x.Sort(
         x => x.Id,
         SortingAlgorithm.QuickSort,
         SortOrder.Descending);
@@ -55,15 +58,19 @@ computer, running Mono 4.0.4 on Linux Mint 17.2
     Selection sort:
     Sorted 100000 items, time: 00:03:06.5617469
     Sort Errors: 0
+
     Insertion sort:
     Sorted 100000 items, time: 00:01:12.5025853
     Sort Errors: 0
+
     Bubble sort:
     Sorted 100000 items, time: 00:05:55.9111441
     Sort Errors: 0
+
     Bubble sort (optimized):
     Sorted 100000 items, time: 00:02:56.3421492
     Sort Errors: 0
+
     Quick sort:
     Sorted 100000 items, time: 00:00:00.0659589
     Sort Errors: 0
