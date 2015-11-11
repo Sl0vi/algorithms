@@ -34,9 +34,9 @@ sorting key that implements the IComparable interface.
 
     var x = new[]
     {
-        new Customer { Id = 1, Name = "George" },
-        new Customer { Id = 3, Name = "Lucas" },
-        new Customer { Id = 2, Name = "John" }
+        new Customer { Id = 1, Name = "John" },
+        new Customer { Id = 3, Name = "George" },
+        new Customer { Id = 2, Name = "Lucas" }
     };
 
     var sorted = x.Sort(
@@ -45,9 +45,20 @@ sorting key that implements the IComparable interface.
         SortOrder.Descending);
 
     // sorted:
-    // { Id: 3, Name: "Lucas" },
-    // { Id: 2, Name: "John" },
-    // { Id: 1, Name: "George" }
+    // { Id: 3, Name: "George" },
+    // { Id: 2, Name: "Lucas" },
+    // { Id: 1, Name: "John" }
+
+You can also use the string property as the sorting key:
+
+    var sorted2 = x.Sort(
+        x => x.Name,
+        SortingAlgorithm.InsertionSort); // Defaults to ascending order
+
+    // sorted2:
+    // { Id: 3, Name: "George" },
+    // { Id: 1, Name: "John" },
+    // { Id: 2, Name: "Lucas" }
 
 Run the sorting tests in the console application to see the performance of the
 different sorting algorithms.
