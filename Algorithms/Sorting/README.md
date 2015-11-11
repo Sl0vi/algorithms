@@ -19,7 +19,53 @@ Example usage:
         SortingAlgorithm.SelectionSort,
         SortOrder.Ascending);
 
-    // outputs: 3, 5, 6, 9, 10, 14
+    // sorted: 3, 5, 6, 9, 10, 14
+
+The algorithms can even sort more complex objects as long as you specify a
+sorting key that implements the IComparable interface.
+
+    class Customer
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    var x = new[]
+    {
+        new Customer { Id = 1, Name = "George" },
+        new Customer { Id = 3, Name = "Lucas" },
+        new Customer { Id = 2, Name = "John" }
+    }
+    var sorted = x.sort(
+        x => x.Id,
+        SortingAlgorithm.QuickSort,
+        SortOrder.Descending);
+
+    // sorted:
+    // { Id: 3, Name: "Lucas" },
+    // { Id: 2, Name: "John" },
+    // { Id: 1, Name: "George" }
 
 Run the sorting tests in the console application to see the performance of the
 different sorting algorithms.
+
+Here are some stats sorting 100.000 random integers on my fairly powerful
+computer, running Mono 4.0.4 on Linux Mint 17.2
+
+    Selection sort:
+    Sorted 100000 items, time: 00:03:06.5617469
+    Sort Errors: 0
+    Insertion sort:
+    Sorted 100000 items, time: 00:01:12.5025853
+    Sort Errors: 0
+    Bubble sort:
+    Sorted 100000 items, time: 00:05:55.9111441
+    Sort Errors: 0
+    Bubble sort (optimized):
+    Sorted 100000 items, time: 00:02:56.3421492
+    Sort Errors: 0
+    Quick sort:
+    Sorted 100000 items, time: 00:00:00.0659589
+    Sort Errors: 0
+
+When in doubt, use quick sort.
