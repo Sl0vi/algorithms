@@ -11,7 +11,7 @@ namespace Algorithms.Sorting
     /// </summary>
     public class QuickSortParallel : ISortingAlgorithm
     {
-        private volatile int counter = 0;
+        private int counter = 0;
         private EventWaitHandle waitHandle;
 
         public IEnumerable<TSource> Sort<TSource, TKey>(
@@ -42,13 +42,13 @@ namespace Algorithms.Sorting
             if (first < last)
             {
                 var split = Partition(list, key, sortOrder, first, last);
-                counter += 2;
+                Interlocked.Add(ref counter, 2);
                 var task1 = new Task(() => Sort(list, key, sortOrder, first, split - 1));
                 var task2 = new Task(() => Sort(list, key, sortOrder, split + 1, last));
                 task1.Start();
                 task2.Start();
             }
-            counter--;
+            Interlocked.Decrement(ref counter);
             if (counter == 0)
                 waitHandle.Set();
         }

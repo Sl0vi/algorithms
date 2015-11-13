@@ -128,7 +128,7 @@ namespace Algorithms.ConsoleTests
             warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
             warmup.Sort(x => x, SortingAlgorithm.QuickSort);
 
-            var bigCollection = new int[1000000];
+            var bigCollection = new int[10000000];
             for (var i = 0; i < bigCollection.Length; i++)
             {
                 bigCollection[i] = random.Next(int.MinValue, int.MaxValue);
@@ -138,12 +138,12 @@ namespace Algorithms.ConsoleTests
             var watch = new Stopwatch();
             IEnumerable<int> sorted;
 
-//            Console.WriteLine("Quick sort:");
-//            watch.Start();
-//            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSort);
-//            watch.Stop();
-//            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
-//            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+            Console.WriteLine("Quick sort:");
+            watch.Start();
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSort);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
 
             watch.Reset();
             sorted = null;
