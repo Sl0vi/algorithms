@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Algorithms.Sorting;
 
 namespace Algorithms.ConsoleTests
@@ -12,10 +14,26 @@ namespace Algorithms.ConsoleTests
 
         public static void Main(string[] args)
         {
-            SortingTests();
-
+            int workerThreads;
+            int completionPortThreads;
+            ThreadPool.GetMaxThreads(out workerThreads, out completionPortThreads);
+            Console.WriteLine("{0}, {1}", workerThreads, completionPortThreads);
+            //SortingTests();
+            QuickSorts();
             Console.WriteLine("Done, press any key to exit");
             Console.ReadKey(true);
+        }
+
+        static void DoStuff(int number)
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                Console.WriteLine(
+                    "Task {0}: says hi! Running thread: {1}",
+                    number,
+                    Thread.CurrentThread.ManagedThreadId);
+                Thread.Sleep(random.Next(20, 500));
+            }
         }
 
         static void SortingTests()
@@ -33,6 +51,8 @@ namespace Algorithms.ConsoleTests
             {
                 bigCollection[i] = random.Next(int.MinValue, int.MaxValue);
             }
+
+            GC.Collect();
 
             var watch = new Stopwatch();
             Console.WriteLine("Selection sort:");
@@ -85,6 +105,56 @@ namespace Algorithms.ConsoleTests
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
             Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+
+            watch.Reset();
+            sorted = null;
+            GC.Collect();
+
+            Console.WriteLine("Quick sort (parallel):");
+            watch.Start();
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSortParallel);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+        }
+
+        static void QuickSorts()
+        {
+            var warmup = new[] { 30, 2, 18, 20, 5, 36, 19 };
+
+            warmup.Sort(x => x, SortingAlgorithm.SelectionSort);
+            warmup.Sort(x => x, SortingAlgorithm.InsertionSort);
+            warmup.Sort(x => x, SortingAlgorithm.BubbleSort);
+            warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
+            warmup.Sort(x => x, SortingAlgorithm.QuickSort);
+
+            var bigCollection = new int[1000000];
+            for (var i = 0; i < bigCollection.Length; i++)
+            {
+                bigCollection[i] = random.Next(int.MinValue, int.MaxValue);
+            }
+
+            GC.Collect();
+            var watch = new Stopwatch();
+            IEnumerable<int> sorted;
+
+//            Console.WriteLine("Quick sort:");
+//            watch.Start();
+//            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSort);
+//            watch.Stop();
+//            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+//            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+
+            watch.Reset();
+            sorted = null;
+            GC.Collect();
+
+            Console.WriteLine("Quick sort (parallel):");
+            watch.Start();
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSortParallel, SortOrder.Descending);
+            watch.Stop();
+            Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
         }
 
         static int SortErrorCount(IEnumerable<int> collection)
@@ -93,7 +163,7 @@ namespace Algorithms.ConsoleTests
             var counter = 0;
             for (var i = 0; i < list.Count - 1; i++)
             {
-                if (list[i] > list[i + 1])
+                if (list[i] < list[i + 1])
                     counter++;
             }
             return counter;

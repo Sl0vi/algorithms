@@ -18,6 +18,7 @@ namespace Algorithms.Sorting
             sortingAlgorithms.Add(SortingAlgorithm.BubbleSort, typeof(BubbleSort));
             sortingAlgorithms.Add(SortingAlgorithm.BubbleSortOptimized, typeof(BubbleSortOptimized));
             sortingAlgorithms.Add(SortingAlgorithm.QuickSort, typeof(QuickSort));
+            sortingAlgorithms.Add(SortingAlgorithm.QuickSortParallel, typeof(QuickSortParallel));
         }
 
         /// <summary>

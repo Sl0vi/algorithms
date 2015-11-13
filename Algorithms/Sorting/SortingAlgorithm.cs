@@ -6,6 +6,7 @@
         InsertionSort,
         BubbleSort,
         BubbleSortOptimized,
-        QuickSort
+        QuickSort,
+        QuickSortParallel
     }
 }
