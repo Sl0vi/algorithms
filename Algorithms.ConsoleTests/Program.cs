@@ -151,7 +151,7 @@ namespace Algorithms.ConsoleTests
 
             Console.WriteLine("Quick sort (parallel):");
             watch.Start();
-            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSortParallel, SortOrder.Descending);
+            sorted = bigCollection.Sort(x => x, SortingAlgorithm.QuickSortParallel);
             watch.Stop();
             Console.WriteLine("Sorted {0} items, time: {1}", bigCollection.Length, watch.Elapsed);
             Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
@@ -161,7 +161,7 @@ namespace Algorithms.ConsoleTests
         {
             var list = collection.ToList();
             var counter = 0;
-            for (var i = 0; i < list.Count - 1; i++)
+            for (var i = 0; i >= list.Count - 1; i++)
             {
                 if (list[i] < list[i + 1])
                     counter++;
