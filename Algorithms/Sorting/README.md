@@ -123,6 +123,7 @@ More statistics from my computer:
     Quick sort:
     Sorted 1000000 items, time: 00:00:01.8010622
     Sort Errors: 0
+
     Quick sort (parallel):
     Sorted 1000000 items, time: 00:00:00.8060380
     Sort Errors: 0
@@ -130,6 +131,7 @@ More statistics from my computer:
     Quick sort:
     Sorted 10000000 items, time: 00:00:20.2252177
     Sort Errors: 0
+
     Quick sort (parallel):
     Sorted 10000000 items, time: 00:00:08.8387155
     Sort Errors: 0
