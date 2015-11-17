@@ -53,5 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Sorting\README.md" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>
