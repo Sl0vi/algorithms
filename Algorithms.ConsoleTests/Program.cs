@@ -18,10 +18,35 @@ namespace Algorithms.ConsoleTests
             int completionPortThreads;
             ThreadPool.GetMaxThreads(out workerThreads, out completionPortThreads);
             Console.WriteLine("{0}, {1}", workerThreads, completionPortThreads);
+            ShuffleNumbers();
             //SortingTests();
-            QuickSorts();
+            //QuickSorts();
             Console.WriteLine("Done, press any key to exit");
             Console.ReadKey(true);
+        }
+
+        static void ShuffleNumbers()
+        {
+            var random = new Random(243);
+            var sorted = new[] { 1, 2, 3, 4, 5, 6 };
+            Console.WriteLine("Shuffling numbers:");
+            Console.Write("Unshuffled: ");
+            for (var i = 0; i < sorted.Length; i++)
+            {
+                Console.Write(sorted[i]);
+                if (i < sorted.Length - 1)
+                    Console.Write(", ");
+            }
+            Console.Write(Environment.NewLine);
+            Console.Write("Shuffled: ");
+            var shuffled = sorted.Shuffle(random).ToArray();
+            for (var i = 0; i < shuffled.Length; i++)
+            {
+                Console.Write(shuffled[i]);
+                if (i < shuffled.Length - 1)
+                    Console.Write(", ");
+            }
+            Console.Write(Environment.NewLine);
         }
 
         static void DoStuff(int number)

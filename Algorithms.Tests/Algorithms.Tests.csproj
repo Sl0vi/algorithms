@@ -43,6 +43,7 @@
     <Compile Include="Sorting\QuickSortParallelTests.cs" />
     <Compile Include="CryptoRandomTests.cs" />
     <Compile Include="Sorting\SortingAlgorithmTests.cs" />
+    <Compile Include="FisherYatesShuffleTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

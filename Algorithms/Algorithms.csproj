@@ -43,6 +43,7 @@
     <Compile Include="Sorting\BubbleSortOptimized.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\QuickSortParallel.cs" />
+    <Compile Include="FisherYatesShuffle.cs" />
     <Compile Include="CryptoRandom.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
