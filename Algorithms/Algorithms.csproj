@@ -43,6 +43,7 @@
     <Compile Include="Sorting\BubbleSortOptimized.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\QuickSortParallel.cs" />
+    <Compile Include="CryptoRandom.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
