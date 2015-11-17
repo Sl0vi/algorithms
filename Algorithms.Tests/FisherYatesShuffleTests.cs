@@ -19,7 +19,6 @@ namespace Algorithms.Tests
             Assert.That(shuffled, Is.Not.Null);
             Assert.That(shuffled.Length, Is.EqualTo(sorted.Length));
             Assert.That(shuffled, Is.EqualTo(expected));
-
         }
     }
 }
