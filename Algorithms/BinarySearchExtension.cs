@@ -37,7 +37,8 @@ namespace Algorithms
                 else
                     return list[mid];
             }
-            throw new ValueNotFoundException();
+            throw new ValueNotFoundException(
+                string.Format("Key {0} was not in the list", key));
         }
     }
 }
