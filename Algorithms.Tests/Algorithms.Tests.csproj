@@ -44,6 +44,7 @@
     <Compile Include="CryptoRandomTests.cs" />
     <Compile Include="Sorting\SortingAlgorithmTests.cs" />
     <Compile Include="FisherYatesShuffleTests.cs" />
+    <Compile Include="BinarySearchExtensionTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

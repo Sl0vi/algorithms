@@ -46,6 +46,8 @@
     <Compile Include="FisherYatesShuffle.cs" />
     <Compile Include="CryptoRandom.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="BinarySearchExtension.cs" />
+    <Compile Include="ValueNotFoundException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
