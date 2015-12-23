@@ -22,8 +22,10 @@ namespace Algorithms.Sorting
                 swapped = false;
                 for (int i = 0; i < list.Count - swaps - 1; i++)
                 {
-                    if ((key(list[i]).CompareTo(key(list[i + 1])) > 0 && sortOrder == SortOrder.Ascending)
-                        || (key(list[i]).CompareTo(key(list[i + 1])) < 0 && sortOrder == SortOrder.Descending))
+                    if ((key(list[i]).CompareTo(key(list[i + 1])) > 0 
+                        && sortOrder == SortOrder.Ascending)
+                        || (key(list[i]).CompareTo(key(list[i + 1])) < 0 
+                        && sortOrder == SortOrder.Descending))
                     {
                         list.Swap(i, i + 1);
                         swapped = true;

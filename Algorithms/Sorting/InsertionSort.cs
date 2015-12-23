@@ -20,8 +20,10 @@ namespace Algorithms.Sorting
             {
                 var x = i;
                 while (x > 0 
-                    && ((key(list[x]).CompareTo(key(list[x - 1])) < 0 && sortOrder == SortOrder.Ascending)
-                    || (key(list[x]).CompareTo(key(list[x - 1])) > 0 && sortOrder == SortOrder.Descending)))
+                    && ((key(list[x]).CompareTo(key(list[x - 1])) < 0 
+                    && sortOrder == SortOrder.Ascending)
+                    || (key(list[x]).CompareTo(key(list[x - 1])) > 0 
+                    && sortOrder == SortOrder.Descending)))
                 {
                     list.Swap(x, x - 1);
                     x--;

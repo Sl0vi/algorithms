@@ -19,9 +19,20 @@ namespace Algorithms.Tests
         [Test]
         public void BinarySearch_find_string()
         {
-            var strings = new[] { "Alice", "Ben", "Bob", "Carl", "Casper", "George", "Luke", "Ned" };
+            var strings = new[] 
+            { 
+                "Alice", 
+                "Ben", 
+                "Bob", 
+                "Carl", 
+                "Casper", 
+                "George", 
+                "Luke", 
+                "Ned" 
+            };
             string result = null;
-            Assert.DoesNotThrow(() => result = strings.BinarySearch(x => x, "Ben"));
+            Assert.DoesNotThrow(() => 
+                result = strings.BinarySearch(x => x, "Ben"));
             Assert.That(result, Is.EqualTo("Ben"));
         }
 
@@ -29,7 +40,8 @@ namespace Algorithms.Tests
         public void BinarySearch_throw_ValueNotFoundException()
         {
             var numbers = new [] { 1, 2, 4, 5, 6, 7, 8, 9, 10 };
-            Assert.Throws<ValueNotFoundException>(() => numbers.BinarySearch(x => x, 3));
+            Assert.Throws<ValueNotFoundException>(() => 
+                numbers.BinarySearch(x => x, 3));
         }
     }
 }

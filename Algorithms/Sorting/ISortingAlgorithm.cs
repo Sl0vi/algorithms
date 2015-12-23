@@ -13,8 +13,12 @@ namespace Algorithms.Sorting
         /// </summary>
         /// <param name="collection">The collection to sort</param>
         /// <param name="key">The key that the collection is sorted by</param>
-        /// <param name="sortOrder">The order that the collection is sorted in</param>
-        /// <typeparam name="TSource">The type of objects contained in the collection</typeparam>
+        /// <param name="sortOrder">
+        /// The order that the collection is sorted in
+        /// </param>
+        /// <typeparam name="TSource">
+        /// The type of objects contained in the collection
+        /// </typeparam>
         /// <typeparam name="TKey">The type of the sort key</typeparam>
         IEnumerable<TSource> Sort<TSource, TKey>(
             IEnumerable<TSource> collection, 

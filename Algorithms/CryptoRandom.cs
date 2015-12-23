@@ -24,7 +24,8 @@ namespace Algorithms
 
         public override int Next(int minValue, int maxValue)
         {
-            return (int)Math.Round(NextDouble() * (maxValue - minValue - 1)) + minValue;
+            return (int)Math.Round(NextDouble() * (maxValue - minValue - 1)) 
+                + minValue;
         }
 
         public override void NextBytes(byte[] buffer)

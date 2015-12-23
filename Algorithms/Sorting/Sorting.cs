@@ -13,12 +13,24 @@ namespace Algorithms.Sorting
         static Sorting()
         {
             sortingAlgorithms = new Dictionary<SortingAlgorithm, Type>();
-            sortingAlgorithms.Add(SortingAlgorithm.SelectionSort, typeof(SelectionSort));
-            sortingAlgorithms.Add(SortingAlgorithm.InsertionSort, typeof(InsertionSort));
-            sortingAlgorithms.Add(SortingAlgorithm.BubbleSort, typeof(BubbleSort));
-            sortingAlgorithms.Add(SortingAlgorithm.BubbleSortOptimized, typeof(BubbleSortOptimized));
-            sortingAlgorithms.Add(SortingAlgorithm.QuickSort, typeof(QuickSort));
-            sortingAlgorithms.Add(SortingAlgorithm.QuickSortParallel, typeof(QuickSortParallel));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.SelectionSort, 
+                typeof(SelectionSort));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.InsertionSort, 
+                typeof(InsertionSort));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.BubbleSort, 
+                typeof(BubbleSort));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.BubbleSortOptimized, 
+                typeof(BubbleSortOptimized));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.QuickSort, 
+                typeof(QuickSort));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.QuickSortParallel, 
+                typeof(QuickSortParallel));
         }
 
         /// <summary>
@@ -26,9 +38,15 @@ namespace Algorithms.Sorting
         /// </summary>
         /// <param name="collection">The collection to sort</param>
         /// <param name="key">The key that the collection is sorted by</param>
-        /// <param name="algorithm">The algorithm used to sort the collection</param>
-        /// <param name="sortOrder">The order that the collection is sorted in</param>
-        /// <typeparam name="TSource">The type of objects contained in the collection</typeparam>
+        /// <param name="algorithm">
+        /// The algorithm used to sort the collection
+        /// </param>
+        /// <param name="sortOrder">
+        /// The order that the collection is sorted in
+        /// </param>
+        /// <typeparam name="TSource">
+        /// The type of objects contained in the collection
+        /// </typeparam>
         /// <typeparam name="TKey">The type of the sort key</typeparam>
         public static IEnumerable<TSource> Sort<TSource, TKey>(
             this IEnumerable<TSource> collection,
@@ -38,7 +56,8 @@ namespace Algorithms.Sorting
             where TKey : IComparable
         {
             var type = sortingAlgorithms[algorithm];
-            var algorithmInstance = (ISortingAlgorithm)Activator.CreateInstance(type);
+            var algorithmInstance = (ISortingAlgorithm)Activator
+                .CreateInstance(type);
             return algorithmInstance.Sort(collection, key, sortOrder);
         }
     }

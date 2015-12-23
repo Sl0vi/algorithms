@@ -21,7 +21,8 @@ namespace Algorithms.Sorting
         }
 
         /// <summary>
-        /// The quick sort alogorithm. Recursively calls itself until the list is sorted.
+        /// The quick sort alogorithm. Recursively calls itself until the list 
+        /// is sorted.
         /// </summary>
         private void Sort<TSource, TKey>(
             List<TSource> list, 
@@ -40,8 +41,10 @@ namespace Algorithms.Sorting
         }
 
         /// <summary>
-        /// Uses the value at the index of first as the pivot to partition the list.
-        /// At the end of the partitioning the pivot is placed into the correct sorted position
+        /// Uses the value at the index of first as the pivot to partition the 
+        /// list.
+        /// At the end of the partitioning the pivot is placed into the correct 
+        /// sorted position
         /// </summary>
         private int Partition<TSource, TKey>(
             List<TSource> list, 
@@ -64,7 +67,10 @@ namespace Algorithms.Sorting
                 }
 
                 while (rightPosition >= leftPosition
-                    && IsSorted(key(pivot), key(list[rightPosition]), sortOrder))
+                    && IsSorted(
+                        key(pivot), 
+                        key(list[rightPosition]), 
+                        sortOrder))
                 {
                     rightPosition--;
                 }
@@ -79,13 +85,16 @@ namespace Algorithms.Sorting
         }
 
         /// <summary>
-        /// Determines if the left and right values are in correct sort order compared to each other
+        /// Determines if the left and right values are in correct sort order 
+        /// compared to each other
         /// </summary>
         private bool IsSorted<TKey>(TKey left, TKey right, SortOrder sortOrder)
             where TKey : IComparable
         {
-            return (left.CompareTo(right) <= 0 && sortOrder == SortOrder.Ascending)
-                || (left.CompareTo(right) >= 0 && sortOrder == SortOrder.Descending);
+            return (left.CompareTo(right) <= 0 
+                && sortOrder == SortOrder.Ascending)
+                || (left.CompareTo(right) >= 0 
+                && sortOrder == SortOrder.Descending);
         }
     }
 }

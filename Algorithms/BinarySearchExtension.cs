@@ -7,14 +7,19 @@ namespace Algorithms
     {
         /// <summary>
         /// The Binary search algorithm.
-        /// Assumes that the list is already sorted by the key in ascending order
+        /// Assumes that the list is already sorted by the key in ascending
+        /// order
         /// </summary>
         /// <param name="list">The list to search</param>
-        /// <param name="lookupKey">The key to use as lookup during comparisons</param>
+        /// <param name="lookupKey">
+        /// The key to use as lookup during comparisons
+        /// </param>
         /// <param name="key">The key to search for</param>
         /// <typeparam name="TSource">The type contained in the list</typeparam>
         /// <typeparam name="TKey">The type of the key to search for</typeparam>
-        /// <returns>The first occurrence of the value with the key searched for</returns>
+        /// <returns>
+        /// The first occurrence of the value with the key searched for
+        /// </returns>
         /// <exception cref="Algorithms.ValueNotFoundException">
         /// Thrown if the value searched for was not found in the collection
         /// </exception>
