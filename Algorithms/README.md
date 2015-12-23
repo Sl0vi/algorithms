@@ -3,7 +3,7 @@
 
 Various algorithms implemented in C#.
 
-- [Sorting algorithms](Sorting/README.md)
+- [Sorting algorithms](Sorting)
 
 Binary Search
 --------------------------------------------------------------------------------
