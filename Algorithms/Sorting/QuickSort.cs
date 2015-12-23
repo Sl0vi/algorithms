@@ -61,13 +61,16 @@ namespace Algorithms.Sorting
             do
             {
                 while (leftPosition <= rightPosition 
-                    && IsSorted(key(list[leftPosition]), key(pivot), sortOrder))
+                    && Utilities.IsSorted(
+                        key(list[leftPosition]), 
+                        key(pivot), 
+                        sortOrder))
                 {
                     leftPosition++;
                 }
 
                 while (rightPosition >= leftPosition
-                    && IsSorted(
+                    && Utilities.IsSorted(
                         key(pivot), 
                         key(list[rightPosition]), 
                         sortOrder))
@@ -82,19 +85,6 @@ namespace Algorithms.Sorting
             } while(!done);
             list.Swap(first, rightPosition);
             return rightPosition;
-        }
-
-        /// <summary>
-        /// Determines if the left and right values are in correct sort order 
-        /// compared to each other
-        /// </summary>
-        private bool IsSorted<TKey>(TKey left, TKey right, SortOrder sortOrder)
-            where TKey : IComparable
-        {
-            return (left.CompareTo(right) <= 0 
-                && sortOrder == SortOrder.Ascending)
-                || (left.CompareTo(right) >= 0 
-                && sortOrder == SortOrder.Descending);
         }
     }
 }

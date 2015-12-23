@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Algorithms.Sorting;
 
 namespace Algorithms
 {
@@ -18,6 +20,21 @@ namespace Algorithms
             T temp = list[indexA];
             list[indexA] = list[indexB];
             list[indexB] = temp;
+        }
+
+        /// <summary>
+        /// Determines if the left and right values are in correct sort order 
+        /// compared to each other
+        /// </summary>
+        internal static bool IsSorted<TKey>(
+            TKey left, TKey right, 
+            SortOrder sortOrder)
+            where TKey : IComparable
+        {
+            return (left.CompareTo(right) <= 0 
+                && sortOrder == SortOrder.Ascending)
+                || (left.CompareTo(right) >= 0 
+                && sortOrder == SortOrder.Descending);
         }
     }
 }

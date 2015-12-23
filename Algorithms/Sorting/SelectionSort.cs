@@ -21,11 +21,13 @@ namespace Algorithms.Sorting
                 var next = i;
                 for (var x = i + 1; x < list.Count; x++)
                 {
-                    if ((key(list[x]).CompareTo(key(list[next])) < 0 
-                        && sortOrder == SortOrder.Ascending)
-                        || (key(list[x]).CompareTo(key(list[next])) > 0 
-                        && sortOrder == SortOrder.Descending))
+                    if (!Utilities.IsSorted(
+                        key(list[next]),
+                        key(list[x]),
+                        sortOrder))
+                    {
                         next = x;
+                    }
                 }
                 if (next != i)
                     list.Swap(i, next);
