@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Algorithms.Tests.Sorting
 {
     [TestFixture]
-    public class BubbleSortTests : SortingAlgorithmTests
+    public class BubbleSortTests : StableSortTests
     {
         public BubbleSortTests()
         {

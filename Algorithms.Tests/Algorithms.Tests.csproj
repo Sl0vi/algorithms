@@ -45,6 +45,7 @@
     <Compile Include="Sorting\SortingAlgorithmTests.cs" />
     <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="BinarySearchExtensionTests.cs" />
+    <Compile Include="Sorting\StableSortTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

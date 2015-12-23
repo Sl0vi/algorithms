@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Algorithms.Tests.Sorting
 {
     [TestFixture]
-    public class InsertionSortTests : SortingAlgorithmTests
+    public class InsertionSortTests : StableSortTests
     {
         public InsertionSortTests()
         {
