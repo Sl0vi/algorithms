@@ -4,6 +4,7 @@
 Various algorithms implemented in C#.
 
 - [Sorting algorithms](Sorting)
+- [Generic Numeric type](Numerics)
 
 Binary Search
 --------------------------------------------------------------------------------
