@@ -48,13 +48,17 @@
     <Compile Include="Utilities.cs" />
     <Compile Include="BinarySearchExtension.cs" />
     <Compile Include="ValueNotFoundException.cs" />
+    <Compile Include="Numerics\INumeric.cs" />
+    <Compile Include="Numerics\Numeric.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Sorting\" />
+    <Folder Include="Numerics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Sorting\README.md" />
     <None Include="README.md" />
+    <None Include="Numerics\README.md" />
   </ItemGroup>
 </Project>

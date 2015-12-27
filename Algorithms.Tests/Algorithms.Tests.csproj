@@ -46,10 +46,13 @@
     <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="BinarySearchExtensionTests.cs" />
     <Compile Include="Sorting\StableSortTests.cs" />
+    <Compile Include="Numeric\NumericTests.cs" />
+    <Compile Include="Numeric\Vector2d.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Sorting\" />
+    <Folder Include="Numeric\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">
