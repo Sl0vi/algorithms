@@ -98,4 +98,4 @@ parameters you can use, but does not provide complete type safety.*
     var doubleVector = new Vector2d<double>(9.95, 10.0);
     doubleVector = doubleVector.Multiply(2.0) // OK
 
-    var stringVector = new Vector2d<string>("abc", "123"); // Compile Exception!
+    var stringVector = new Vector2d<string>("abc", "123"); // Compiler error!
