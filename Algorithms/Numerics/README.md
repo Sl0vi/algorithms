@@ -40,8 +40,8 @@ The numeric type is a generic struct. You just specify the number type you want
 to use as a generic type parameter. The struct implicitly converts both to and
 from the base type. All binary and comparison operators that are shared across
 number types can be used between both numeric types and the base type. The 
-numeric type also implements all the same interfaces that C# numbers types do,
-so you can do almost anything with it that you can do with normal numbers.
+numeric type also implements all the same interfaces that C# number types do, so
+you can do almost anything with it that you can do with normal numbers.
 
     var x = new Numeric<int>(2);
     var y = x + 7;
@@ -99,3 +99,30 @@ parameters you can use, but does not provide complete type safety.*
     doubleVector = doubleVector.Multiply(2.0) // OK
 
     var stringVector = new Vector2d<string>("abc", "123"); // Compiler error!
+
+Supported operators
+--------------------------------------------------------------------------------
+
+The numeric type supports most common operators used by all number types. 
+Certain operators that only work on specific number types like the increment
+(++) and decrement (--) operators are not supported, since they only work with
+integer types.
+
+Complete list:
+
+- Implicit cast T to Numeric<T>
+- Implicit cast Numeric<T> to T
+- Equal (==)
+- Not equal (!=)
+- Less than (<)
+- Less than or equal (<=)
+- Greater than (>)
+- Greater than or equal (>=)
+- Add (+)
+- Subtract (-)
+- Multiply (*)
+- Divide (/)
+- Modulus (%)
+
+You can use both Numeric<T> and T together in all operators without doing any 
+manual type casting.
