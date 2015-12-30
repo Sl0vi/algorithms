@@ -16,6 +16,7 @@ namespace Algorithms.Numerics
             IConvertible,
             IComparable
     {
+        T Value { get; }
         Numeric<T> Add(T other);
         Numeric<T> Add(Numeric<T> other);
         Numeric<T> Subtract(T other);

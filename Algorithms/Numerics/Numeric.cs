@@ -15,16 +15,18 @@ namespace Algorithms.Numerics
             IConvertible,
             IComparable
     {
-        public readonly T Value;
+        private readonly T value;
+
+        public T Value { get { return value; } }
 
         public Numeric(T value)
         {
-            Value = value;
+            this.value = value;
         }
 
         public Numeric(Numeric<T> numeric)
         {
-            Value = numeric.Value;
+            this.value = numeric.Value;
         }
 
         public Numeric<T> Add(T other)
@@ -44,7 +46,7 @@ namespace Algorithms.Numerics
 
         public Numeric<T> Subtract(Numeric<T> other)
         {
-            return new Numeric<T>((dynamic)Value + other.Value);
+            return new Numeric<T>((dynamic)Value - other.Value);
         }
 
         public Numeric<T> Multiply(T other)
@@ -210,11 +212,6 @@ namespace Algorithms.Numerics
         public object ToType(Type conversionType, IFormatProvider provider)
         {
             return Value.ToType(conversionType, provider);
-        }
-
-        public static T Zero()
-        {
-            return default(T);
         }
 
         public static implicit operator Numeric<T>(T value)
