@@ -31,6 +31,9 @@ namespace Algorithms.Sorting
             sortingAlgorithms.Add(
                 SortingAlgorithm.QuickSortParallel, 
                 typeof(QuickSortParallel));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.MergeSort,
+                typeof(MergeSort));
         }
 
         /// <summary>

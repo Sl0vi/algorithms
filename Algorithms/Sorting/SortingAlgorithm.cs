@@ -7,6 +7,7 @@
         BubbleSort,
         BubbleSortOptimized,
         QuickSort,
-        QuickSortParallel
+        QuickSortParallel,
+        MergeSort
     }
 }

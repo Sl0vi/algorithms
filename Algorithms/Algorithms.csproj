@@ -50,6 +50,7 @@
     <Compile Include="ValueNotFoundException.cs" />
     <Compile Include="Numerics\INumeric.cs" />
     <Compile Include="Numerics\Numeric.cs" />
+    <Compile Include="Sorting\MergeSort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

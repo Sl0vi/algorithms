@@ -53,6 +53,7 @@
     <Compile Include="Numeric\NumericTests.cs" />
     <Compile Include="Numeric\NumericIntTests.cs" />
     <Compile Include="Numeric\WrongType.cs" />
+    <Compile Include="Sorting\MergeSortTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
