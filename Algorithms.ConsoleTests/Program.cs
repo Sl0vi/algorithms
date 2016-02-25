@@ -19,8 +19,8 @@ namespace Algorithms.ConsoleTests
                 out workerThreads, 
                 out completionPortThreads);
             Console.WriteLine($"{workerThreads}, {completionPortThreads}");
-            ShuffleNumbers();
-            //SortingTests();
+            //ShuffleNumbers();
+            SortingTests();
             //QuickSorts();
             Console.WriteLine("Done, press any key to exit");
             Console.ReadKey(true);
@@ -71,6 +71,7 @@ namespace Algorithms.ConsoleTests
             warmup.Sort(x => x, SortingAlgorithm.BubbleSort);
             warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
             warmup.Sort(x => x, SortingAlgorithm.QuickSort);
+            warmup.Sort(x => x, SortingAlgorithm.MergeSort);
 
             var bigCollection = new int[100000];
             for (var i = 0; i < bigCollection.Length; i++)
@@ -157,6 +158,17 @@ namespace Algorithms.ConsoleTests
             watch.Start();
             sorted = bigCollection
                 .Sort(x => x, SortingAlgorithm.QuickSortParallel);
+            watch.Stop();
+            Console.WriteLine(
+                "Sorted {0} items, time: {1}", 
+                bigCollection.Length, 
+                watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+            
+            Console.WriteLine("Merge sort:");
+            watch.Start();
+            sorted = bigCollection
+                .Sort(x => x, SortingAlgorithm.MergeSort);
             watch.Stop();
             Console.WriteLine(
                 "Sorted {0} items, time: {1}", 
