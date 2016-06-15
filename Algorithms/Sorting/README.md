@@ -64,34 +64,38 @@ Run the sorting tests in the console application to see the performance of the
 different sorting algorithms.
 
 Here are some statistics sorting 100.000 random integers on my fairly powerful
-computer, running Mono 4.2.2 on Linux Mint 17.3
+computer, running Mono 4.2.4 on Linux Mint 17.3
 
     Selection sort:
-    Sorted 100000 items, time: 00:01:55.0992233
+    Sorted 100000 items, time: 00:01:46.0122573
     Sort Errors: 0
     
     Insertion sort:
-    Sorted 100000 items, time: 00:01:53.4915749
+    Sorted 100000 items, time: 00:01:55.5011201
     Sort Errors: 0
     
     Bubble sort:
-    Sorted 100000 items, time: 00:04:51.4143569
+    Sorted 100000 items, time: 00:05:31.4108454
     Sort Errors: 0
     
     Bubble sort (optimized):
-    Sorted 100000 items, time: 00:03:04.6473804
+    Sorted 100000 items, time: 00:03:15.7226876
     Sort Errors: 0
     
     Quick sort:
-    Sorted 100000 items, time: 00:00:00.0663817
+    Sorted 100000 items, time: 00:00:00.0642818
     Sort Errors: 0
     
     Quick sort (parallel):
-    Sorted 100000 items, time: 00:00:00.0581259
+    Sorted 100000 items, time: 00:00:00.0633445
     Sort Errors: 0
     
     Merge sort:
-    Sorted 100000 items, time: 00:00:00.7349013
+    Sorted 100000 items, time: 00:00:00.6673475
+    Sort Errors: 0
+    
+    Shell sort:
+    Sorted 100000 items, time: 00:00:00.1363444
     Sort Errors: 0
 
 When in doubt, use quick sort.

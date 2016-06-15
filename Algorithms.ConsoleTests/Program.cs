@@ -71,7 +71,9 @@ namespace Algorithms.ConsoleTests
             warmup.Sort(x => x, SortingAlgorithm.BubbleSort);
             warmup.Sort(x => x, SortingAlgorithm.BubbleSortOptimized);
             warmup.Sort(x => x, SortingAlgorithm.QuickSort);
+            warmup.Sort(x => x, SortingAlgorithm.QuickSortParallel);
             warmup.Sort(x => x, SortingAlgorithm.MergeSort);
+            warmup.Sort(x => x, SortingAlgorithm.ShellSort);
 
             var bigCollection = new int[100000];
             for (var i = 0; i < bigCollection.Length; i++)
@@ -165,10 +167,29 @@ namespace Algorithms.ConsoleTests
                 watch.Elapsed);
             Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
             
+            watch.Reset();
+            sorted = null;
+            GC.Collect();
+            
             Console.WriteLine("Merge sort:");
             watch.Start();
             sorted = bigCollection
                 .Sort(x => x, SortingAlgorithm.MergeSort);
+            watch.Stop();
+            Console.WriteLine(
+                "Sorted {0} items, time: {1}", 
+                bigCollection.Length, 
+                watch.Elapsed);
+            Console.WriteLine("Sort Errors: {0}", SortErrorCount(sorted));
+            
+            watch.Reset();
+            sorted = null;
+            GC.Collect();
+            
+            Console.WriteLine("Shell sort:");
+            watch.Start();
+            sorted = bigCollection
+                .Sort(x => x, SortingAlgorithm.ShellSort);
             watch.Stop();
             Console.WriteLine(
                 "Sorted {0} items, time: {1}", 

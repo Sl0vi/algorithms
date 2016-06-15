@@ -8,6 +8,7 @@
         BubbleSortOptimized,
         QuickSort,
         QuickSortParallel,
-        MergeSort
+        MergeSort,
+        ShellSort
     }
 }

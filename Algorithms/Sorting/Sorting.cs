@@ -34,6 +34,9 @@ namespace Algorithms.Sorting
             sortingAlgorithms.Add(
                 SortingAlgorithm.MergeSort,
                 typeof(MergeSort));
+            sortingAlgorithms.Add(
+                SortingAlgorithm.ShellSort,
+                typeof(ShellSort));
         }
 
         /// <summary>

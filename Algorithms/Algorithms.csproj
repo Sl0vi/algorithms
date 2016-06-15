@@ -51,6 +51,7 @@
     <Compile Include="Numerics\INumeric.cs" />
     <Compile Include="Numerics\Numeric.cs" />
     <Compile Include="Sorting\MergeSort.cs" />
+    <Compile Include="Sorting\ShellSort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
